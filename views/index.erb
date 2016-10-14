@@ -1,4 +1,6 @@
-<%50.times do |number| %>
-  <% number=number+1 %>
-  <p> <%= number.odd? ? "#{number} Soy Impar!" : "#{number} Soy Par!" %> </p>
-<%end%>
+<h1>Mi suma es: <%= @sum %></h1>
+
+<form action='/' method='POST'>
+ <input type="hidden" name="sum" value="<%= @sum.to_i+1 %>" />
+ <button type='submit'>Sum</button>
+</form>
