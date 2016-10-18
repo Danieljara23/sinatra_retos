@@ -1,11 +1,15 @@
 require 'sinatra'
 
 get '/' do
-  @sum= 0
   erb :index
 end
 
 post '/' do
-  @sum = params[:sum].to_i
-  erb :index
+  frase = params[:text]
+  if frase == frase.upcase
+    @res = "Ahhh si, manzanas!"
+  else
+    @res = "Habla más duro mijito"
+  end
+  erb :respuesta
 end

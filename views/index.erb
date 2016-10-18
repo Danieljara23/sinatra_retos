@@ -1,6 +1,7 @@
-<h1>Mi suma es: <%= @sum %></h1>
+<h1>Abuela Sorda</h1>
 
 <form action='/' method='POST'>
- <input type="hidden" name="sum" value="<%= @sum.to_i+1 %>" />
- <input type='submit'>Sum</input>
+  <label for="frase">Di algo Abuela:</label>
+  <input type="text" name="text"  />
+  <input type='submit' value="Dilo!"></input>
 </form>
