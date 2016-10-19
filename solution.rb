@@ -1,15 +1,13 @@
 require 'sinatra'
 
-get '/' do
-  erb :index
-end
 
-post '/' do
-  frase = params[:text]
-  if frase == frase.upcase
-    @res = "Ahhh si, manzanas!"
-  else
-    @res = "Habla más duro mijito"
-  end
-  erb :respuesta
+get '/' do
+  headers = Hash[*env.select {|k,v| k.start_with? 'HTTP_'}
+    .collect {|k,v| [k.sub(/^HTTP_/, ''), v]}
+    .collect {|k,v| [k.split('_').collect(&:capitalize).join('-'), v]}
+    .sort
+    .flatten]
+  #puts headers
+  @header = headers
+  erb :index
 end
