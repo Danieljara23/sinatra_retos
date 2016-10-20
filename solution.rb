@@ -4,8 +4,8 @@ require 'sinatra'
 
 get '/' do
   if request.env["HTTP_PERMISO"] == "soy-un-token-secreto"
-    puts "Si lo logramos!"
+    "Si lo logramos!"
   else
-    puts "Sin Permiso"
+    "Sin Permiso"
   end
 end
